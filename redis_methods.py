@@ -8,7 +8,6 @@ class RedisHashMethods(object):
             
     def set_hash(self, hash_name, key, value):
         return self._client.set_hash('er', 'foo', 'bar')
-        
 
     def get_hash(self, hash_name, key):
         output = self._client.get_hash(hash_name, key)

@@ -21,10 +21,16 @@ class TestRedisMethods(unittest.TestCase):
         self.value = 'bar'
 
     @patch('containers.Readers')
-    def test_set_hash(self, mock_set_hash):
+    def test_set_non_existing_hash(self, mock_set_hash):
+        mock_set_hash.return_value = "{}".format(self.test_redis_methods.set_hash(self.hash_name, self.key, self.value))
+        self.assertEqual(mock_set_hash.return_value, '0')
+
+
+    @patch('containers.Readers')
+    def test_set_existing_hash(self, mock_set_hash):
         self.test_redis_methods.set_hash(self.hash_name, self.key, self.value)
-        mock_set_hash.return_value = "{}".format(self.test_redis_methods.get_hash(self.hash_name, self.key))        
-        self.assertEqual(mock_set_hash.return_value, "b'bar'")
+        mock_set_hash.return_value = "{}".format(self.test_redis_methods.set_hash(self.hash_name, self.key, self.value))
+        self.assertEqual(mock_set_hash.return_value, '0')
 
     @patch('containers.Readers')    
     def test_get_existing_hash(self, mock_get_hash): 
