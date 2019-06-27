@@ -1,4 +1,4 @@
-from redis_abstract_methods import RedisMethodsAbstraction
+from .redis_abstract_methods import RedisMethodsAbstraction
 
 class RedisHashMethods(RedisMethodsAbstraction):
     
