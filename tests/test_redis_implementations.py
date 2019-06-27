@@ -2,6 +2,7 @@
 from mock import patch
 from unittest.mock import MagicMock
 import unittest
+import os
 
 from RedisMethods.redis_methods import RedisHashMethods
 from RedisMethods.containers import Configs, Readers, Clients
@@ -10,9 +11,9 @@ class TestRedisMethods(unittest.TestCase):
 
     def setUp(self):
         Configs.config.override({
-        "host": "localhost",
-        "port": "6379",
-        "db": 0
+        "host": os.getenv('SERVER_HOST'),
+        "port": os.getenv('PORT_NUMBER'),
+        "db": os.getenv('DB_VALUE')
         })
         self.test_redis_methods = Readers.redis_methods()
         self.hash_name = 'er'

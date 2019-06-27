@@ -106,7 +106,7 @@ python main.py
 ----
 <p>This API uses A Redis Methods Client. The methods contained are namely: hget(), hset(), hgetall(), hexists() and hdel()
 </p>
-----
+
 
 **Get Hash**
 ----
