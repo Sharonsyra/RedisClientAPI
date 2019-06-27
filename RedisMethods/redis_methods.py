@@ -15,15 +15,13 @@ class RedisHashMethods(RedisMethodsAbstraction):
         output = self._client.get_hash(hash_name, key)
         if output is None:
             return "No matching value!"
-        else:
-            return output
+        return output
 
     def get_hash_dist(self, hash_name):
         output = self._client.get_hash_dist(hash_name)
         if not output:
             return "No matching hash!"
-        else: 
-            return output 
+        return output
 
     def hash_check(self, hash_name, key):
         return self._client.hash_check(hash_name, key)
@@ -32,5 +30,4 @@ class RedisHashMethods(RedisMethodsAbstraction):
         output = self._client.delete_hash(hash_name, key)
         if output is None:
             return 0
-        else:
-            return output
+        return output

@@ -22,12 +22,9 @@ class TestRedisMethodsAPI(unittest.TestCase):
 
     def test_redis_set_non_existing_hash(self):
         response = app.test_client().post(
-            # 'api/v1.0/methods/pk/color/pink')
             '/api/v1.0/methods/{}/{}/{}'.format(self.another_hash_name, self.key, self.value))
         self.assertEqual(response.status_code, 201)
         self.assertIn('Created', str(response.data))
-
-        # import pdb; pdb.set_trace(5)
 
     def test_redis_set_existing_hash(self):
         response = app.test_client().post(
