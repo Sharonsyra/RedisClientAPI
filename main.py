@@ -23,17 +23,17 @@ def redis_set_hash(hash_name, key, value):
 @app.route('/api/v1.0/methods/<string:hash_name>/<string:key>', methods=['GET'])
 def redis_get_hash(hash_name, key):
     output = redis_methods.get_hash(hash_name, key)
-    if isinstance(output, bytes):
-        return make_response(jsonify({'Hash: ': str(output)}), 200)
-    return make_response(jsonify({'None: ': str(output)}), 200)
+    if not isinstance(output, bytes):
+        return make_response(jsonify({'None: ': str(output)}), 200)
+    return make_response(jsonify({'Hash: ': str(output)}), 200)
 
 @app.route('/api/v1.0/methods/<string:hash_name>', methods=['GET'])
 def redis_get_hash_dict(hash_name):
     bytes_output = redis_methods.get_hash_dist(hash_name)
-    if isinstance(bytes_output, str):
-        return make_response(jsonify({"None: ": bytes_output}), 200)
-    output = {str(k):str(v) for k,v in bytes_output.items()}
-    return make_response(jsonify({"Hash Dict: ": output}), 200)
+    if isinstance(bytes_output, dict):
+        output = {str(k):str(v) for k,v in bytes_output.items()}
+        return make_response(jsonify({"Hash Dict: ": output}), 200)
+    return make_response(jsonify({"None: ": bytes_output}), 200)
 
 @app.route('/api/v1.0/methods/check/<string:hash_name>/<string:key>', methods=['GET'])
 def redis_hash_check(hash_name, key):
@@ -43,9 +43,10 @@ def redis_hash_check(hash_name, key):
 @app.route('/api/v1.0/methods/<string:hash_name>/<string:key>', methods=['DELETE'])
 def redis_delete_hash(hash_name, key):
     output = redis_methods.delete_hash(hash_name, key)
-    if output:
-        return make_response(jsonify({"Hash Deleted": output}), 200)
-    return make_response(jsonify({"Hash does not exist": output}), 200)
+    if not output:
+        return make_response(jsonify({"Hash does not exist": output}), 200)
+    return make_response(jsonify({"Hash Deleted": output}), 200)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
