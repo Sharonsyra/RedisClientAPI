@@ -3,11 +3,11 @@ python:
   - "3.6"
 install:
   - pip install -r requirements.txt
-  - pip install python-coveralls
-
+services:
+  - redis-server
 script: 
   - nosetests --with-cov 
-  - coveralls
+#   - coveralls
 
-after_success:
-- coveralls
+# after_success:
+# - coveralls
