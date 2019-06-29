@@ -34,13 +34,13 @@ class TestRedisMethodsAPI(unittest.TestCase):
         response = app.test_client().get(
             '/api/v1.0/methods/{}/{}'.format(self.hash_one, self.key)
         )
-        self.assertIn('None', str(response.data))
+        self.assertIn('No hash', str(response.data))
 
     def test_redis_get_non_existing_dict_hash(self):
         response = app.test_client().get(
             '/api/v1.0/methods/{}'.format(self.hash_four)
         )
-        self.assertIn('None', str(response.data))
+        self.assertIn('No dict', str(response.data))
     
     def test_redis_non_existing_hash_check(self):
         response = app.test_client().get(

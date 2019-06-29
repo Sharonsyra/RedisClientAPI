@@ -24,7 +24,7 @@ def redis_set_hash(hash_name, key, value):
 def redis_get_hash(hash_name, key):
     output = redis_methods.get_hash(hash_name, key)
     if not isinstance(output, bytes):
-        return make_response(jsonify({'None: ': str(output)}), 200)
+        return make_response(jsonify({'No hash: ': str(output)}), 200)
     return make_response(jsonify({'Hash: ': str(output)}), 200)
 
 @app.route('/api/v1.0/methods/<string:hash_name>', methods=['GET'])
@@ -33,7 +33,7 @@ def redis_get_hash_dict(hash_name):
     if isinstance(bytes_output, dict):
         output = {str(k):str(v) for k,v in bytes_output.items()}
         return make_response(jsonify({"Hash Dict: ": output}), 200)
-    return make_response(jsonify({"None: ": bytes_output}), 200)
+    return make_response(jsonify({"No dict: ": bytes_output}), 200)
 
 @app.route('/api/v1.0/methods/check/<string:hash_name>/<string:key>', methods=['GET'])
 def redis_hash_check(hash_name, key):
