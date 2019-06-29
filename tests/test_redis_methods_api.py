@@ -1,7 +1,7 @@
 import unittest
 import os
 
-from RedisMethods.containers import Configs, Readers
+from containers import Configs, Readers
 from main import app
 
 class TestRedisMethodsAPI(unittest.TestCase):

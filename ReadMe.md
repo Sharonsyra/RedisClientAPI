@@ -42,7 +42,7 @@ In you Working folder Test with this commands
 - Import the container 
 
 ```
-from RedisMethods.containers import Configs, Readers, Clients
+from containers import Configs, Readers, Clients
 ```
 
 - Override your postgres credentials

@@ -1,7 +1,7 @@
 from dependency_injector import providers, containers
 
-from .redis_client import RedisClient
-from .redis_methods import RedisHashMethods
+from RedisMethods.redis_client import RedisClient
+from RedisMethods.redis_methods import RedisHashMethods
 
 class Configs(containers.DeclarativeContainer):
     config = providers.Configuration('config')

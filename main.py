@@ -1,7 +1,7 @@
 from flask import Flask, make_response, jsonify
 import os
 
-from RedisMethods.containers import Configs, Readers, Clients
+from containers import Configs, Readers, Clients
 
 app = Flask(__name__)
 
