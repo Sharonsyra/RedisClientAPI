@@ -5,9 +5,7 @@ install:
   - pip install -r requirements.txt
 services:
   - redis-server
-script: 
-  - nosetests --with-cov
 env:
-  - SERVER_HOST="localhost"
-  - PORT_NUMBER="3454"
-  - DB_VALUE=0
+  - DB=redis
+script:
+  - nosetests --with-cov
