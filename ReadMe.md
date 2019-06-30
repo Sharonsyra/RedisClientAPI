@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Sharonsyra/RedisClientAPI.svg?branch=master)](https://travis-ci.org/Sharonsyra/RedisClientAPI)
+
 # RedisClientAPI
 
 This is a  small MySQL database wrapper module that injects a mysql connection instance
