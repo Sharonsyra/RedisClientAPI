@@ -6,8 +6,8 @@ install:
 services:
   - redis-server
 script: 
-  - nosetests --with-cov 
-#   - coveralls
-
-# after_success:
-# - coveralls
+  - nosetests --with-cov
+env:
+  - SERVER_HOST="localhost"
+  - PORT_NUMBER="3454"
+  - DB_VALUE=0
