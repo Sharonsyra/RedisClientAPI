@@ -9,3 +9,5 @@ env:
   - DB=redis
 script:
   - nosetests --with-cov
+after_success:
+  - codecov
