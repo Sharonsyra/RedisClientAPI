@@ -341,7 +341,12 @@ python main.py
 
 ### Run your tests:
 ```
-$ pytest -v(optional for verbosity)
+$ nosetests -v (optional for verbosity)
+```
+
+With coverage
+```
+$ nosetests --with-cov
 ```
 
 ## Resources Used
