@@ -3,15 +3,15 @@
 
 # RedisClientAPI
 
-This is a  small MySQL database wrapper module that injects a mysql connection instance
+This is a  small Redis Client wrapper module that injects a connection instance. It implements five methods. Namely: hget(), hset(), hgetall(), hexists() and hdel()
 
 ## Getting Started
 These instructions should help you run the code on your machine.
 
 ### Prerequisites
 The code is written in Python3
-- Python3 installed
-- Redis installed
+- Python3 installed   (brew install Python3)
+- Redis installed   (brew install redis)
 
 ### Installing locally from github
 
@@ -34,8 +34,15 @@ $ pip install -r requirements.txt
 
 Start your Redis server - This is dependent on how you installed Redis. 
 
+If you installed through brew use.
 ```
-redis-server /usr/local/etc/redis.conf 
+brew services start redis
+```
+
+To stop Redis Server use
+
+```
+brew services stop redis
 ```
 
 ### Running the Redis Methods Client
@@ -340,4 +347,3 @@ $ pytest -v(optional for verbosity)
 ## Resources Used
 - Using Redis in Python - [Python Redis](https://redis-py.readthedocs.io/en/latest/)
 - Redis Documentation - [Docs](https://redis.io/documentation)
-

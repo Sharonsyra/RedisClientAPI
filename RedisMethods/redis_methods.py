@@ -21,10 +21,10 @@ class RedisHashMethods(RedisMethodsAbstraction):
             return "No matching value!"
         return output
 
-    def get_hash_dist(self, hash_name):
+    def get_hash_dict(self, hash_name):
         """Gets a Python dict of the hash’s name/value pairs
         equivalent to Redis' hgetall()"""
-        output = self._client.get_hash_dist(hash_name)
+        output = self._client.get_hash_dict(hash_name)
 
         if not output:
             return "No matching hash!"

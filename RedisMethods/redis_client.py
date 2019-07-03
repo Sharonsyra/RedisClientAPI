@@ -18,7 +18,7 @@ class RedisClient(object):
     def get_hash(self, hash_name, key):
         return self._client.hget(hash_name, key)
 
-    def get_hash_dist(self, hash_name):
+    def get_hash_dict(self, hash_name):
         return self._client.hgetall(hash_name)
 
     def hash_check(self, hash_name, key):

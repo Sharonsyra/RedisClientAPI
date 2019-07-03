@@ -11,7 +11,7 @@ class RedisMethodsAbstraction(ABC):
         pass
 
     @abstractmethod
-    def get_hash_dist(self, hash_name):
+    def get_hash_dict(self, hash_name):
         pass 
 
     @abstractmethod

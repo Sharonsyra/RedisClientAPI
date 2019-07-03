@@ -36,7 +36,7 @@ def redis_get_hash(hash_name, key):
 def redis_get_hash_dict(hash_name):
     """Gets a Python dict of the hash’s name/value pairs
     equivalent to Redis' hgetall()"""
-    bytes_output = redis_methods.get_hash_dist(hash_name)
+    bytes_output = redis_methods.get_hash_dict(hash_name)
 
     if isinstance(bytes_output, dict):
         output = {str(k):str(v) for k,v in bytes_output.items()}
